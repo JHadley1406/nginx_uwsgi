@@ -1,8 +1,8 @@
 FROM debian:stretch-slim
 
-RUN apt-get update && \
-    apt-get install nginx && \
-    apt-get install python3.6 python3-pip
+RUN apt-get -yq update && \
+    apt-get -yq install nginx && \
+    apt-get -yq install python3.6 python3-pip
 
 RUN rm /etc/nginx/sites-enabled/default.conf
 RUN mkdir -p /etc/uwsgi/sites/
