@@ -1,7 +1,7 @@
 FROM debian:stretch-slim
 
 RUN apt-get update && \
-    apt-get install nginx \
+    apt-get install nginx && \
     apt-get install python3.6 python3-pip
 
 RUN rm /etc/nginx/sites-enabled/default.conf
