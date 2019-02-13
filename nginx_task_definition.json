@@ -1,0 +1,22 @@
+{
+  "family": "nginx_8080",
+  "memory": "8",
+  "cpu": "1024",
+  "requiresCompatibilities": [
+    "EC2"
+  ],
+  "containerDefinitions": [
+    {
+      "name": "nginx",
+      "image": "334928403764.dkr.ecr.us-east-2.amazonaws.com/nginx_8080",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80,
+          "protocol": "tcp"
+        }
+      ]
+    }
+  ]
+}
