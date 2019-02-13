@@ -1,0 +1,23 @@
+{
+  "family": "uwsgi_8080",
+  "memory": "512",
+  "cpu": "1024",
+  "requiresCompatibilities":[
+    "EC2"
+  ],
+  "containerDefinitions": [
+    {
+      "name": "uwsgi",
+      "image": "334928403764.dkr.ecr.us-east-2.amazonaws.com/uwsgi_8080",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 8080,
+          "containerPort": 8080,
+          "protocol": "tcp"
+        }
+
+      ]
+    }
+  ]
+}
