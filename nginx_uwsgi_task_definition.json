@@ -1,0 +1,42 @@
+{
+  "family": "nginx_uwsgi_8080",
+  "networkMode": "bridge",
+  "requiresCompatibilities":[
+    "EC2"
+  ],
+  "containerDefinitions": [
+    {
+      "name": "nginx",
+      "image": "334928403764.dkr.ecr.us-east-2.amazonaws.com/nginx_8080",
+      "essential": true,
+      "memory": 256,
+      "cpu": 512,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80,
+          "protocol": "tcp"
+        }
+
+      ],
+      "links": [
+        "uwsgi"
+      ]
+    },
+    {
+      "name": "uwsgi",
+      "image": "334928403764.dkr.ecr.us-east-2.amazonaws.com/uwsgi_8080",
+      "essential": true,
+      "memory": 256,
+      "cpu": 512,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "nginx-uwsgi",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "nginx-uwsgi"
+        }
+      }
+    }
+  ]
+}
